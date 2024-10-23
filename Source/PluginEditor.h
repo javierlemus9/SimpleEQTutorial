@@ -155,12 +155,18 @@ private:
 
 struct LookAndFeel : juce::LookAndFeel_V4
 {
-        void drawRotarySlider (juce::Graphics&,
-                               int x, int y, int width, int height,
-                               float sliderPosProportional,
-                               float rotaryStartAngle,
-                               float rotaryEndAngle,
-                               juce::Slider&) override;
+    void drawRotarySlider (juce::Graphics&,
+                            int x, int y, int width, int height,
+                            float sliderPosProportional,
+                            float rotaryStartAngle,
+                            float rotaryEndAngle,
+                            juce::Slider&) override;
+    
+    void drawToggleButton(juce::Graphics &g,
+                          juce::ToggleButton & toggleButton,
+                          bool shouldDrawButtonAsHighlighted,
+                          bool shouldDrawButtonAsDown) override;
+    
 };
 
 struct RotarySliderWithLabels : juce::Slider
@@ -300,6 +306,8 @@ private:
                      analyzerEnabledButtonAttachment;
     
     std::vector<juce::Component*> getComps();
+    
+    LookAndFeel lnf;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleEQAudioProcessorEditor)
 };
