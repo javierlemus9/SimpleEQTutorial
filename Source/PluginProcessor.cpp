@@ -6,7 +6,6 @@
   ==============================================================================
 */
 
-// TODO create EQX
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
